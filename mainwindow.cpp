@@ -5,6 +5,22 @@ MainWindow::MainWindow(QWidget *parent)
 {
     setupUi(this);
     
+    // 夜間模式暗黑風格 - 整個視窗背景
+    QString windowStyle = R"(
+        QMainWindow {
+            background-color: #1e1e1e;
+        }
+        QWidget#centralwidget {
+            background-color: #1e1e1e;
+        }
+        QStatusBar {
+            background-color: #2d2d2d;
+            color: #e0e0e0;
+            border-top: 1px solid #3d3d3d;
+        }
+    )";
+    this->setStyleSheet(windowStyle);
+    
     // 美化功能表列 - 夜間模式暗黑風格
     QString menuStyle = R"(
         QMenuBar {
