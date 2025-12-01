@@ -33,10 +33,16 @@ public:
     QAction *action_T;
     QAction *action_C_2;
     QAction *action_A_2;
+    QAction *action_Zoom_In;
+    QAction *action_Zoom_Out;
+    QAction *action_Fullscreen;
+    QAction *action_Toolbar;
+    QAction *action_StatusBar;
     QWidget *centralwidget;
     QMenuBar *menubar;
     QMenu *menu_E;
     QMenu *menu_E_2;
+    QMenu *menu_V;
     QStatusBar *statusbar;
 
     void setupUi(QMainWindow *MainWindow)
@@ -64,6 +70,20 @@ public:
         action_C_2->setObjectName("action_C_2");
         action_A_2 = new QAction(MainWindow);
         action_A_2->setObjectName("action_A_2");
+        action_Zoom_In = new QAction(MainWindow);
+        action_Zoom_In->setObjectName("action_Zoom_In");
+        action_Zoom_Out = new QAction(MainWindow);
+        action_Zoom_Out->setObjectName("action_Zoom_Out");
+        action_Fullscreen = new QAction(MainWindow);
+        action_Fullscreen->setObjectName("action_Fullscreen");
+        action_Toolbar = new QAction(MainWindow);
+        action_Toolbar->setObjectName("action_Toolbar");
+        action_Toolbar->setCheckable(true);
+        action_Toolbar->setChecked(true);
+        action_StatusBar = new QAction(MainWindow);
+        action_StatusBar->setObjectName("action_StatusBar");
+        action_StatusBar->setCheckable(true);
+        action_StatusBar->setChecked(true);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         MainWindow->setCentralWidget(centralwidget);
@@ -74,6 +94,8 @@ public:
         menu_E->setObjectName("menu_E");
         menu_E_2 = new QMenu(menubar);
         menu_E_2->setObjectName("menu_E_2");
+        menu_V = new QMenu(menubar);
+        menu_V->setObjectName("menu_V");
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
@@ -81,6 +103,7 @@ public:
 
         menubar->addAction(menu_E->menuAction());
         menubar->addAction(menu_E_2->menuAction());
+        menubar->addAction(menu_V->menuAction());
         menu_E->addAction(action_N);
         menu_E->addAction(action_O);
         menu_E->addAction(action_C);
@@ -93,6 +116,12 @@ public:
         menu_E_2->addAction(action_T);
         menu_E_2->addAction(action_C_2);
         menu_E_2->addAction(action_A_2);
+        menu_V->addAction(action_Zoom_In);
+        menu_V->addAction(action_Zoom_Out);
+        menu_V->addSeparator();
+        menu_V->addAction(action_Fullscreen);
+        menu_V->addAction(action_Toolbar);
+        menu_V->addAction(action_StatusBar);
 
         retranslateUi(MainWindow);
 
@@ -133,8 +162,23 @@ public:
 #if QT_CONFIG(shortcut)
         action_A_2->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+A", nullptr));
 #endif // QT_CONFIG(shortcut)
+        action_Zoom_In->setText(QCoreApplication::translate("MainWindow", "\346\224\276\345\244\247(I)", nullptr));
+#if QT_CONFIG(shortcut)
+        action_Zoom_In->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl++", nullptr));
+#endif // QT_CONFIG(shortcut)
+        action_Zoom_Out->setText(QCoreApplication::translate("MainWindow", "\347\270\256\345\260\217(O)", nullptr));
+#if QT_CONFIG(shortcut)
+        action_Zoom_Out->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+-", nullptr));
+#endif // QT_CONFIG(shortcut)
+        action_Fullscreen->setText(QCoreApplication::translate("MainWindow", "\345\205\250\350\236\242\345\271\225(F)", nullptr));
+#if QT_CONFIG(shortcut)
+        action_Fullscreen->setShortcut(QCoreApplication::translate("MainWindow", "F11", nullptr));
+#endif // QT_CONFIG(shortcut)
+        action_Toolbar->setText(QCoreApplication::translate("MainWindow", "\345\267\245\345\205\267\345\210\227(T)", nullptr));
+        action_StatusBar->setText(QCoreApplication::translate("MainWindow", "\347\213\200\346\205\213\345\210\227(S)", nullptr));
         menu_E->setTitle(QCoreApplication::translate("MainWindow", "\346\252\224\346\241\210(E)", nullptr));
         menu_E_2->setTitle(QCoreApplication::translate("MainWindow", "\347\267\250\350\274\257(E)", nullptr));
+        menu_V->setTitle(QCoreApplication::translate("MainWindow", "\346\252\242\350\246\226(V)", nullptr));
     } // retranslateUi
 
 };
