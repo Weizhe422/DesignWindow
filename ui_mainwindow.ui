@@ -45,8 +45,20 @@
     <addaction name="action_C_2"/>
     <addaction name="action_A_2"/>
    </widget>
+   <widget class="QMenu" name="menu_V">
+    <property name="title">
+     <string>檢視(V)</string>
+    </property>
+    <addaction name="action_Zoom_In"/>
+    <addaction name="action_Zoom_Out"/>
+    <addaction name="separator"/>
+    <addaction name="action_Fullscreen"/>
+    <addaction name="action_Toolbar"/>
+    <addaction name="action_StatusBar"/>
+   </widget>
    <addaction name="menu_E"/>
    <addaction name="menu_E_2"/>
+   <addaction name="menu_V"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="action_N">
@@ -118,6 +130,52 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+A</string>
+   </property>
+  </action>
+  <action name="action_Zoom_In">
+   <property name="text">
+    <string>放大(I)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="action_Zoom_Out">
+   <property name="text">
+    <string>縮小(O)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="action_Fullscreen">
+   <property name="text">
+    <string>全螢幕(F)</string>
+   </property>
+   <property name="shortcut">
+    <string>F11</string>
+   </property>
+  </action>
+  <action name="action_Toolbar">
+   <property name="text">
+    <string>工具列(T)</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="action_StatusBar">
+   <property name="text">
+    <string>狀態列(S)</string>
+   </property>
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
    </property>
   </action>
  </widget>
