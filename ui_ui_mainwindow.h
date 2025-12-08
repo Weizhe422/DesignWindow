@@ -16,6 +16,8 @@
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTextEdit>
+#include <QtWidgets/QToolBar>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -38,12 +40,15 @@ public:
     QAction *action_Fullscreen;
     QAction *action_Toolbar;
     QAction *action_StatusBar;
+    QAction *actionaction_P;
     QWidget *centralwidget;
+    QTextEdit *textEdit;
     QMenuBar *menubar;
     QMenu *menu_E;
     QMenu *menu_E_2;
     QMenu *menu_V;
     QStatusBar *statusbar;
+    QToolBar *toolBar;
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -52,22 +57,43 @@ public:
         MainWindow->resize(800, 600);
         action_N = new QAction(MainWindow);
         action_N->setObjectName("action_N");
+        QIcon icon;
+        icon.addFile(QString::fromUtf8(":/images/new.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_N->setIcon(icon);
         action_O = new QAction(MainWindow);
         action_O->setObjectName("action_O");
+        QIcon icon1;
+        icon1.addFile(QString::fromUtf8(":/images/open.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_O->setIcon(icon1);
         action_C = new QAction(MainWindow);
         action_C->setObjectName("action_C");
         action_S = new QAction(MainWindow);
         action_S->setObjectName("action_S");
+        QIcon icon2;
+        icon2.addFile(QString::fromUtf8(":/images/save.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_S->setIcon(icon2);
         action_A = new QAction(MainWindow);
         action_A->setObjectName("action_A");
+        QIcon icon3;
+        icon3.addFile(QString::fromUtf8(":/images/asave.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_A->setIcon(icon3);
         action_X = new QAction(MainWindow);
         action_X->setObjectName("action_X");
         action_U = new QAction(MainWindow);
         action_U->setObjectName("action_U");
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/images/undo.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_U->setIcon(icon4);
         action_T = new QAction(MainWindow);
         action_T->setObjectName("action_T");
+        QIcon icon5;
+        icon5.addFile(QString::fromUtf8(":/images/cut.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_T->setIcon(icon5);
         action_C_2 = new QAction(MainWindow);
         action_C_2->setObjectName("action_C_2");
+        QIcon icon6;
+        icon6.addFile(QString::fromUtf8(":/images/copy.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        action_C_2->setIcon(icon6);
         action_A_2 = new QAction(MainWindow);
         action_A_2->setObjectName("action_A_2");
         action_Zoom_In = new QAction(MainWindow);
@@ -84,8 +110,17 @@ public:
         action_StatusBar->setObjectName("action_StatusBar");
         action_StatusBar->setCheckable(true);
         action_StatusBar->setChecked(true);
+        actionaction_P = new QAction(MainWindow);
+        actionaction_P->setObjectName("actionaction_P");
+        QIcon icon7;
+        icon7.addFile(QString::fromUtf8(":/images/paste.png"), QSize(), QIcon::Mode::Normal, QIcon::State::Off);
+        actionaction_P->setIcon(icon7);
+        actionaction_P->setMenuRole(QAction::MenuRole::NoRole);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
+        textEdit = new QTextEdit(centralwidget);
+        textEdit->setObjectName("textEdit");
+        textEdit->setGeometry(QRect(5, 1, 791, 531));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -100,6 +135,9 @@ public:
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName("statusbar");
         MainWindow->setStatusBar(statusbar);
+        toolBar = new QToolBar(MainWindow);
+        toolBar->setObjectName("toolBar");
+        MainWindow->addToolBar(Qt::ToolBarArea::TopToolBarArea, toolBar);
 
         menubar->addAction(menu_E->menuAction());
         menubar->addAction(menu_E_2->menuAction());
@@ -122,6 +160,15 @@ public:
         menu_V->addAction(action_Fullscreen);
         menu_V->addAction(action_Toolbar);
         menu_V->addAction(action_StatusBar);
+        toolBar->addAction(action_N);
+        toolBar->addAction(action_O);
+        toolBar->addAction(action_S);
+        toolBar->addAction(action_A);
+        toolBar->addSeparator();
+        toolBar->addAction(action_U);
+        toolBar->addAction(action_T);
+        toolBar->addAction(action_C_2);
+        toolBar->addAction(actionaction_P);
 
         retranslateUi(MainWindow);
 
@@ -176,9 +223,14 @@ public:
 #endif // QT_CONFIG(shortcut)
         action_Toolbar->setText(QCoreApplication::translate("MainWindow", "\345\267\245\345\205\267\345\210\227(T)", nullptr));
         action_StatusBar->setText(QCoreApplication::translate("MainWindow", "\347\213\200\346\205\213\345\210\227(S)", nullptr));
+        actionaction_P->setText(QCoreApplication::translate("MainWindow", "action_P", nullptr));
+#if QT_CONFIG(shortcut)
+        actionaction_P->setShortcut(QCoreApplication::translate("MainWindow", "Ctrl+V", nullptr));
+#endif // QT_CONFIG(shortcut)
         menu_E->setTitle(QCoreApplication::translate("MainWindow", "\346\252\224\346\241\210(E)", nullptr));
         menu_E_2->setTitle(QCoreApplication::translate("MainWindow", "\347\267\250\350\274\257(E)", nullptr));
         menu_V->setTitle(QCoreApplication::translate("MainWindow", "\346\252\242\350\246\226(V)", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 
 };
