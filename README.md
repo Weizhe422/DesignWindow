@@ -26,7 +26,7 @@
 
 | 檔案名稱 | 路徑 | 說明 |
 |---------|------|------|
-| **designwindow.qrc** | `/images/images/designwindow.qrc` | Qt資源檔（包含所有圖示） |
+| **designwindow.qrc** | `/images/images/designwindow.qrc` | Qt資源檔（包含10個工具列圖示） |
 
 ### 圖示資源（位於 /images/images/ 目錄）
 
@@ -150,7 +150,7 @@ DesignWindow/
 ## 常見問題
 
 ### Q: 為什麼找不到Qt檔案？
-A: 所有Qt檔案都在專案根目錄，請參考上方的「Qt專案檔案位置」表格。資源檔（.qrc）位於 `images/images/` 子目錄中。
+A: 主要的Qt檔案（.pro, .ui, .h, .cpp）都在專案根目錄。資源檔（.qrc）和圖示檔案位於 `images/images/` 子目錄中。請參考上方的「Qt專案檔案位置」表格查看完整路徑。
 
 ### Q: 如何修改介面設計？
 A: 使用Qt Creator開啟 `ui_mainwindow.ui` 檔案，就可以使用視覺化設計器編輯介面。
