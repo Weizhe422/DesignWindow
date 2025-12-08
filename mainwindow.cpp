@@ -130,7 +130,6 @@ void MainWindow::saveToFile(const QString &filePath)
     
     QTextStream out(&file);
     out << textEdit->toPlainText();
-    file.close();
     
     statusbar->showMessage(tr("檔案已儲存: %1").arg(filePath), 3000);
 }
