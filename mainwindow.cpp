@@ -3,6 +3,7 @@
 #include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QStringConverter>
 #include <QTextStream>
 
 MainWindow::MainWindow(QWidget *parent)
