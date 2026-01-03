@@ -1,9 +1,10 @@
 #include "mainwindow.h"
-#include"ui_ui_mainwindow.h"
+#include "ui_ui_mainwindow.h"
+#include <QFile>
 #include <QFileDialog>
 #include <QMessageBox>
+#include <QStringConverter>
 #include <QTextStream>
-#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -129,7 +130,9 @@ void MainWindow::saveToFile(const QString &filePath)
     }
     
     QTextStream out(&file);
+    out.setEncoding(QStringConverter::Utf8);
     out << textEdit->toPlainText();
+    file.close();
     
     statusbar->showMessage(tr("檔案已儲存: %1").arg(filePath), 3000);
 }
